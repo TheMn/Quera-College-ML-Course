@@ -11,7 +11,9 @@ class Complex:
         return float(self._real)
 
     def __str__(self):
-        return "{r:.2f} {s} {i:.2f}i".format(r=self._real, s="+" if self._img >= 0 else "-", i=self._img if self._img >= 0 else -self._img)
+        return "{r:.2f} {s} {i:.2f}i".format(r=self._real, s="+" if self._img >= 0 else "-",
+                                             i=self._img if self._img >= 0 else -self._img)
+
 
 c = Complex(2, 0)
 print(c.__str__())

@@ -1,12 +1,12 @@
 def bmi(h, w):
-    return w/((h/100)**2)
+    return w / ((h / 100) ** 2)
 
 
 def calc_avg(people):
     sum = 0
     for person in people:
         sum += person[2]
-    return sum/len(people)
+    return sum / len(people)
 
 
 def process(path):

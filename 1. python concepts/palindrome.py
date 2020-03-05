@@ -1,8 +1,8 @@
 def is_palindrome(s):
     if s == "":
         return False
-    for i in range(int(len(s)/2)):
-        if s[i].lower() != s[-i-1].lower():
+    for i in range(int(len(s) / 2)):
+        if s[i].lower() != s[-i - 1].lower():
             return False
     return True
 
@@ -29,7 +29,7 @@ for i in range(n):
 
 if flag is True:
     print("Palindrome words in the text are: ", end="")
-    for i in range(len(palindromes)-1):
+    for i in range(len(palindromes) - 1):
         print(palindromes[i], ", ", sep="", end="")
     print(palindromes[-1])
 else:

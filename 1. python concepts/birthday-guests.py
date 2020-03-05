@@ -9,8 +9,8 @@ for number in numbers:
     if dict[number] > mod_cnt:
         mod_cnt = dict[number]
         mod_val = number
-avg = sum/len(numbers)
-mid = numbers[int(len(numbers)/2)]
+avg = sum / len(numbers)
+mid = numbers[int(len(numbers) / 2)]
 if len(numbers) % 2 == 0:
-    mid = (mid + numbers[int(len(numbers)/2-1)])/2
+    mid = (mid + numbers[int(len(numbers) / 2 - 1)]) / 2
 print("{avg:.2f}".format(avg=avg), "{mid:.2f}".format(mid=mid), mod_val, sep="\n")

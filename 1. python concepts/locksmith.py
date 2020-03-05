@@ -5,7 +5,7 @@ def weight(x):
 def value(s):
     res = 0
     for i in range(len(s)):
-        res += weight(s[i]) * (i+1)
+        res += weight(s[i]) * (i + 1)
     return res
 
 

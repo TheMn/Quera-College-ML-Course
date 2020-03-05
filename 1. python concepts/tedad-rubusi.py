@@ -1,8 +1,9 @@
 def count_bus(n):
     res = 0
-    for i in range(n+1):
-        res += i*(i+1)/2
+    for i in range(n + 1):
+        res += i * (i + 1) / 2
     return int(res)
+
 
 n = int(input())
 dict = {}

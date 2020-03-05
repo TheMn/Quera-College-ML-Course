@@ -27,4 +27,4 @@ elif tag == "travel":
         sum += 10.0
 else:
     sum += 10.0
-print("{result:.1f}".format(result = sum))
+print("{result:.1f}".format(result=sum))
