@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 with open('cdf/dists.npz', 'rb') as file:
     npzfile = np.load(file)

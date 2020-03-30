@@ -1,50 +1,31 @@
-def normalize(s):
-    res = ""
-    for c in s:
-        if c.isalnum():
-            res = res + c
-    return res
-
+import re
 
 def encode(text):
+    text = text.replace('\n', ' ')
+    word_to_number_map = dict()
+    words = re.sub(r'[^\s\w]', '', text).split()
+    index = 1
     numbers = []
-    code = 1
-    dict = {}
-    word_to_number_map = {}
-    for word in text.split():
-        word = normalize(word)
-        if word != "":
-            if word.lower() in dict:
-                numbers.append(dict[word.lower()])
-            else:
-                dict.setdefault(word.lower(), code)
-                numbers.append(dict[word.lower()])
-                word_to_number_map.setdefault(word, code)
-                code += 1
-    return word_to_number_map, numbers
+    for word in words:
+        if word in word_to_number_map:
+            numbers.append(word_to_number_map[word])
+        else:
+            word_to_number_map[word] = index
+            numbers.append(index)
+            index += 1
 
+    return word_to_number_map,numbers
 
-text = """
-Vestibulum ac diam sit amet
- quam vehicula elementum sed sit 
- amet dui. Vivamus suscipit tortor eget 
- felis porttitor volutpat. Donec rutrum congue leo eget 
- malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. 
- Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan 
- id imperdiet et, porttitor at sem. Vestibulum ac diam sit amet quam vehicula 
- elementum sed sit amet dui. Curabitur arcu erat, accumsan id imperdiet et,
-  porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-   Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum 
-   ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec 
-   velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-
-Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat.
- Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor 
- sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur
-  arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut
-   lacinia in, elementum id enim. Proin eget tortor risus. Praesent sapien massa, convallis
-    a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet, consectetur adipiscing 
-    elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+t = """
+Spain looked to be heading for a seventh straight win in qualification until 
+Chelsea goalkeeper Kepa Arrizabalaga brought down Omar Elabdellaoui.
+Bournemouth's King rolled home the spot-kick in the 94th minute to leave Norway in 
+fourth place in Group F.
+Real Madrid's Ramos, 33, made his Spain debut in 2005 and is one of the last survivors of 
+a golden era that won a World Cup and two European Championships.
+Ramos, who overtook Latvia's Vitalijs Astafjevs at the summit of Europe's outfield caps 
+list, is now eight caps from matching Gianluigi Buffon's overall European record of 176 international appearances.
+The defender has some way to go if he wants to break the world record, however, 
+with former Egypt midfielder Ahmed Hassan playing 184 times for his country between 1995 and 2012.
 """
-
-d, numbers = encode(text)
+print(encode(t))
