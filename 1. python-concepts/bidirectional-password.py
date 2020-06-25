@@ -1,5 +1,6 @@
 import re
 
+
 def encode(text):
     text = text.replace('\n', ' ')
     word_to_number_map = dict()
@@ -14,7 +15,8 @@ def encode(text):
             numbers.append(index)
             index += 1
 
-    return word_to_number_map,numbers
+    return word_to_number_map, numbers
+
 
 t = """
 Spain looked to be heading for a seventh straight win in qualification until 
