@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-with open('cdf/dists.npz', 'rb') as file:
+with open('dists.npz', 'rb') as file:
     npzfile = np.load(file)
     normal_dist = npzfile['normal_dist']
     binomial_dist = npzfile['binomial_dist']
